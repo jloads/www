@@ -27,7 +27,7 @@ media loader for:
     + images
     + ...
 
-## Czym się wyróżnia?
+## How it works?
 
 with jloads it's easy to swith between environments: local/live system
 
@@ -39,7 +39,7 @@ When the domain for environment is not defined, than the main domain is used by 
 
 The callback function is checking if thhis domain environment is default.
         
-### Przykłady wykorzystania jloads:
+### Example of usage jloads:
 
     <script>
         // Configuration
@@ -49,15 +49,17 @@ The callback function is checking if thhis domain environment is default.
         var error = function (data) {
             console.error('!loaded', data);
         };
+        
+        // Declaration
         var jloads = new Load(document.body, success, error);
 
+        // Environment
         jloads.env("//localhost:8080/", "local", function () {
             return window.location.hostname === 'localhost';
         });
         jloads.env("//load.jloads.com/", "production", function () {
             return window.location.hostname !== 'localhost';
         });
-    
     </script>
 
 

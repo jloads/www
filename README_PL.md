@@ -47,15 +47,17 @@ Warunek to funkcja zwrotna wykonywana jako Callback()
         var error = function (data) {
             console.error('!loaded', data);
         };
+        
+        // Declaration
         var jloads = new Load(document.body, success, error);
 
+        // Environment
         jloads.env("//localhost:8080/", "local", function () {
             return window.location.hostname === 'localhost';
         });
         jloads.env("//load.jloads.com/", "production", function () {
             return window.location.hostname !== 'localhost';
         });
-    
     </script>
 
 
