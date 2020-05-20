@@ -12,11 +12,6 @@
 
 
 
-## Example
-
-Project jLoads is an loader for media implementation
-
-[https://load.jloads.com/](https://load.jloads.com/)
 
 
 ## What it's jloads?
@@ -41,28 +36,61 @@ The callback function is checking if thhis domain environment is default.
         
 ### Example of usage jloads:
 
-    <script>
-        // Configuration
-        var success = function (data) {
-            console.log('loaded', data);
-        };
-        var error = function (data) {
-            console.error('!loaded', data);
-        };
-        
-        // Declaration
-        var jloads = new Load(document.body, success, error);
+    // Configuration
+    var success = function (data) {
+        console.log('loaded', data);
+    };
+    var error = function (data) {
+        console.error('!loaded', data);
+    };
+    
+    // Declaration
+    var jloads = new Load(document.body, success, error);
 
-        // Environment
-        jloads.env("//localhost:8080/", "local", function () {
-            return window.location.hostname === 'localhost';
-        });
-        jloads.env("//load.jloads.com/", "production", function () {
-            return window.location.hostname !== 'localhost';
-        });
-    </script>
+    // Environment
+    jloads.env("//localhost:8080/", "local", function () {
+        return window.location.hostname === 'localhost';
+    });
+    jloads.env("//load.jloads.com/", "production", function () {
+        return window.location.hostname !== 'localhost';
+    });
 
 
+    // Load NOW
+    jloads.js([
+        "//code.jquery.com/jquery-git.min.js",
+        "//stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js",
+    ]);
+
+    // Dynamic loading
+    document.addEventListener("DOMContentLoaded", function(event) {
+        loadDefaultCss();
+    });
+
+    function loadDefaultCss(){
+        jloads.cacheOff().css([
+            "//code.jquery.com/ui/1.12.1/jquery-ui.min.js",
+            "//stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css",
+            "css/default.css",
+        ]);
+    }
+    function loadPinkCss(){
+        jloads.cacheOff().css([
+            "css/pink.css",
+        ]);
+    }
+    function loadBlackCss(){
+        jloads.cacheOff().css([
+            "css/black.css",
+        ]);
+    }
+
+
+## Example
+
+Project jLoads is an loader for media implementation
+
+[https://load.jloads.com/](https://load.jloads.com/index.html)
 
 ## TODO List
 The next Step is to Create the integration between code and OpenApi to generate SDK for another languages
