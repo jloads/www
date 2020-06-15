@@ -4,11 +4,11 @@
 
 ![jLoads](https://jloads.github.io/logo/jloads_logo_128.png)
 
-+ [demo loader using the jloads library](http://load.jloads.com)
-+ [aplication using the jloads library](http://app.jloads.com)
-+ [documentation](http://docs.jloads.com)
-+ [blog, news](http://blog.jloads.com)
-+ [logo](http://logo.jloads.com)
++ [demo loader using the jloads library](https://load.jloads.com)
++ [aplication using the jloads library](https://app.jloads.com)
++ [documentation](https://docs.jloads.com)
++ [blog, news](https://blog.jloads.com)
++ [logo](https://logo.jloads.com)
 
 
 
