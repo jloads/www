@@ -32,7 +32,7 @@ When the domain for environment is not defined, than the main domain is used by 
         return window.location.hostname === 'localhost';
     });
 
-The callback function is checking if thhis domain environment is default.
+The callback function is checking if this domain environment is default.
         
 ### Example of usage jloads:
 
