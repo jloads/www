@@ -86,7 +86,34 @@ The callback function is checking if this domain environment is default.
     }
 
 
-## Example
+## Example of local implementation codemirror editor's 
+
+    jloadsUrl({
+                "head": [
+                    "jquery-3.2.1.min.js",
+                    "codemirror/lib/codemirror.js",
+                    "codemirror/addon/search/searchcursor.js",
+                    "codemirror/addon/search/search.js",
+                    "codemirror/addon/dialog/dialog.js",
+                    "codemirror/addon/edit/matchbrackets.js",
+                    "codemirror/addon/edit/closebrackets.js",
+                    "codemirror/addon/comment/comment.js",
+                    "codemirror/addon/wrap/hardwrap.js",
+                    "codemirror/addon/fold/foldcode.js",
+                    "codemirror/addon/fold/brace-fold.js",
+                    "codemirror/mode/javascript/javascript.js",
+                    "codemirror/keymap/sublime.js",
+                    "codemirror/lib/codemirror.css",
+                    "codemirror/addon/fold/foldgutter.css",
+                    "codemirror/addon/dialog/dialog.css",
+                    "codemirror/theme/monokai.css"
+                ],
+                "#forms": [
+                    "form/test.html",
+                    "css/codemirror.css",
+                    "form/inputs.css?6"
+                ]
+            });
 
 Project jLoads is an loader for media implementation
 
