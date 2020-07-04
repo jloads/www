@@ -99,10 +99,10 @@ Warunek to funkcja zwrotna wykonywana jako Callback()
 
 Projekt APIcra jest wspierany przez [API Foundation](https://www.apifoundation.com)
 
-Wystartowaliśmy w roku 2018 z kilkoma pomysłami ale jedną ideą:
-+ szybsze wytwarzanie orogramowania
+Cel APIfoundation jest rozwój ekosystemu w celu szybszego wytwarzania oprogramowania
 
-Dziś, w roku 2020 dajemy rozwiązania w kilku obszarach:
+
+Obecnie istnieje kilka narzędzi od planowania po uruchamianie i utrzymanie oprogramowania:
 
 + [APIexec - executor library for shell scripts](https://www.apiexec.com)
 + [APIcra - shell scripts libraries](https://www.apicra.com)
