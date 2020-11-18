@@ -37,21 +37,27 @@ Warunek to funkcja zwrotna wykonywana jako Callback()
         return window.location.hostname === 'localhost';
     });
         
-### Historia i powody powstania biliotewki jLoads
+### Historia i powody powstania biblioteki jLoads
 
-W ostatniej dekadzie pwostało wielu nowych specjalizacji w obszarze sofwtare developement.
+### Społęczność
+W ostatniej dekadzie pwostało wiele nowych specjalizacji w obszarze sofwtare developement.
 Jako programiści Backend-owi potrzebujemy wsparcia w obszarze frontendu.
+
+### Technologie
 Obecne frameworki wymagają nauki gdyż wprowadzają sporo abstrakcji
 mimo, że są łatwiejsze w użyciu niż sam Javascript do uzyskania tego samego rezultatu,
 potrzebna jest wiedza z zakreu budowy i serwisowania tych rozwiazań.
 
-Aby możliwe było łartwe przejscie pmiędzy projektami potrzebne są jakieś standardy.
+### Software Development
+Aby możliwe było łatwe przejscie pmiędzy projektami potrzebne są jakieś standardy.
 One już istnieją, tylko w momencie powstawiania masy frameworków, trudno o ich użycie, gdyż każdy z nich narzuca własne.
 
+### Przyszłość to natywność, sprawdzone standardy
 Z tego powodu warto zastanawoić się do czego to prowadzi.
 Dla każdego, który widzi wartość w użyciu technologii natywnych jak czysxty język Javascript, bash, ..
-oferujemy narzędzie pozwalająca na implementacje modularyzacji w sposób natywny, bez potrzeby tworzenia bastrakycjnej warstwy.
+oferujemy narzędzie pozwalająca na implementacje modularyzacji w sposób natywny, bez potrzeby tworzenia abstrakycjnej warstwy.
 
+### Rozwiązanie
 To czego potrzebujemy to ładowania asynchronicznych mediów w przeglądarce, tak by były wolne od konfliktów wynikacjących 
 z zależności, błędów, itp.
 
