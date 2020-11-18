@@ -1,7 +1,7 @@
 + [Wersja angielska - EN](https://www.jloads.com/)
 
 
-# Info about [ApiBuild](https://www.jloads.com)
+# Info about [jLoads](https://www.jloads.com)
 ![jLoads](https://jloads.github.io/logo/jloads_logo_128.png)
 
 https://github.com/jloads/logo
