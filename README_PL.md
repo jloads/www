@@ -37,6 +37,41 @@ Warunek to funkcja zwrotna wykonywana jako Callback()
         return window.location.hostname === 'localhost';
     });
         
+### Historia i powody powstania biliotewki jLoads
+
+W ostatniej dekadzie pwostało wielu nowych specjalizacji w obszarze sofwtare developement.
+Jako programiści Backend-owi potrzebujemy wsparcia w obszarze frontendu.
+Obecne frameworki wymagają nauki gdyż wprowadzają sporo abstrakcji
+mimo, że są łatwiejsze w użyciu niż sam Javascript do uzyskania tego samego rezultatu,
+potrzebna jest wiedza z zakreu budowy i serwisowania tych rozwiazań.
+
+Aby możliwe było łartwe przejscie pmiędzy projektami potrzebne są jakieś standardy.
+One już istnieją, tylko w momencie powstawiania masy frameworków, trudno o ich użycie, gdyż każdy z nich narzuca własne.
+
+Z tego powodu warto zastanawoić się do czego to prowadzi.
+Dla każdego, który widzi wartość w użyciu technologii natywnych jak czysxty język Javascript, bash, ..
+oferujemy narzędzie pozwalająca na implementacje modularyzacji w sposób natywny, bez potrzeby tworzenia bastrakycjnej warstwy.
+
+To czego potrzebujemy to ładowania asynchronicznych mediów w przeglądarce, tak by były wolne od konfliktów wynikacjących 
+z zależności, błędów, itp.
+
+Tutaj z pomocą przychdzi jLoads, biblioteka, która ładuje wszystkie media jako pojedyncze moduły/pliki
+dzięki temu możliwe jest łatwe reużycie, gdyż są to proste elementy HTML, CSS, JAVASCRIPT, SVG, itd
+
+Dzięki mozliwości ich kombinacji na stronie www u klienta powstaje wiele możliwości reakcji.
+
+## Wartości
++ Filozofia, w duchu której powstaje jLoads, to natywne rozwiązania na potrzeby modularyzacji
++ Standaryzacja sposóbów dostępu do mediów, a nie standaryzacja treści!
++ Droga do której prowadzi jLoads to Steramowanie APlikcji
++ Dodatkowe rozwiazania pozwalające na poszerzenie korzyści płynącej z JLoads to
+    + jBodys jako obszerna biblioteka otwartych i darmowych modułów
+    + jRuns jako runner po stronie serwera dla kodu po stronie backendu
+    
+To co jest istotne, to możliwość pracy z zastanym kodem "Legacy Code", bez potrzeby implementacji nowych frameworków,
+
+## pozostańmy natywni, kolejną dekadę!
+
 ### Przykłady wykorzystania jloads:
 
     // Configuration
