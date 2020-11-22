@@ -16,8 +16,15 @@ https://github.com/jloads
 
 ## Co to jest jloads?
 
-biblioteka pozwalająca na ładowanie treści, skryptów, obrazów, mediów poprzez 
+biblioteka pozwalająca na ładowanie treści, skryptów, obrazów, mediów poprzez
 generowanie zapytań w czasie rzeczywistym.
+
+jLoads to rozwiązanie po stronie frontendu, do ładowania plików poprzez przeglądarkę,
+to proste rozwiązanie pozwalające na szybkie stworzenie strony, bez narzędzi w sposób modułowy.
+Co daje takie rozwiązanie?
+Tworzenie szybko czegoś w oparciu o gotowce, np: potrzebujesz stworzyć stronę z logowaniem, ankietą, ofertą, itd wchodzisz na darmową i otwarta bibliotekę mediów i po prostu dodajesz do swojego, ewnetualnie zmieniasz, to co jest potrzebne, dodajesz konfigiurację tylko swoją.
+W późniejszym etapie, to będzie gotowa do pobrania aplikacja na systemy mobilne jak android.
+
 
 ## Czym się wyróżnia?
 
@@ -39,7 +46,7 @@ Warunek to funkcja zwrotna wykonywana jako Callback()
         
 ### Historia i powody powstania biblioteki jLoads
 
-### Społęczność
+### Społeczność
 W ostatniej dekadzie pwostało wiele nowych specjalizacji w obszarze sofwtare developement.
 Jako programiści Backend-owi potrzebujemy wsparcia w obszarze frontendu.
 
