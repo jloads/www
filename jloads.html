@@ -1,0 +1,81 @@
+<!doctype html>
+
+<head>
+<meta charset=UTF-8>
+<title>jloads.js</title>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel=stylesheet>
+<link href=https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/themes/prism.min.css rel=stylesheet>
+<link href=style.css rel=stylesheet>
+<link rel=icon type=image/png sizes=32x32 href=favicon.png>
+<meta name=viewport content="width=device-width,initial-scale=1">
+</head>
+<body>
+<header>
+<section>
+<a class=hamburger href=javascript:;>≡</a>
+<h1><img src=jloads.png> jloads <small>0.1.4</small></h1>
+<nav>
+<a href=index.html>Guide</a>
+<a href=api.html>API</a>
+<a href=https://gitter.im>Chat</a>
+<a href=https://github.com/jloads/get>GitHub</a>
+</nav>
+</section>
+</header>
+<main>
+<section>
+<h1 id=introduction><a href=#introduction>Introduction</a></h1>
+<hr>
+<p>We covered how to create and update HTML, how to create components, routes for a Single Page Application, and interacted with a server via XHR.</p>
+<p>This should be enough to get you started writing the frontend for a real application. Now that you are comfortable with the basics of the jloads API, <a href=simple-application.html>be sure to check out the simple application tutorial</a>, which walks you through building a realistic application.</p>
+<hr>
+<small>License: MIT. &copy; Tom Sapletta.</small>
+</section>
+</main>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/prism.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/prism-jsx.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/prism-diff.min.js></script>
+<script src=https://unpkg.com/jloads@0.1.4/jloads.js async></script>
+<script src=https://flems.io/flems.html id=flems defer></script>
+<script>
+document.querySelector(".hamburger").onclick = function () {
+		document.body.className = document.body.className === "navigating" ? "" : "navigating"
+		document.querySelector("h1 + ul").onclick = function () {
+			document.body.className = ''
+		}
+	}
+	document.getElementById("flems").onload = function () {
+		var systemFonts = [
+					"body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; }",
+					"body { height: 100%; overflow:hidden; display:flex; justify-content: center; align-items:center; }"
+				].join("")
+		;[].forEach.call(document.querySelectorAll("pre code.language-js"), function (el) {
+			el = el.parentNode
+
+			var div = document.createElement("div")
+			window.Flems(div, {
+				middle: 60,
+				editable: true,
+				toolbar: false,
+				shareButton: true,
+				console: false,
+				autoHeight: true,
+				files: [{
+					name: ".js",
+					content: el.textContent
+				}, {
+					name: ".css",
+					content: systemFonts
+				}],
+				links: [{
+					name: "jloads",
+					type: "script",
+					url: "https://unpkg.com/jloads@0.1.4/jloads.js"
+				}]
+			}, "https://flems.io/flems.html")
+
+			el.parentNode.insertBefore(div, el)
+			el.parentNode.removeChild(el)
+		})
+	}
+</script>
