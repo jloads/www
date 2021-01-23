@@ -7,7 +7,7 @@ const remoteInfo = execFileSync("git", ["remote", "-v"], {
 	windowsHide: true,
 	stdio: ["inherit", "pipe", "inherit"],
 	encoding: "utf-8",
-}).trim().split(/\r\n?|\n/g)
+}).trim().split(/\r\n?|\n/g);
 
 function find(type) {
 	const regexp = new RegExp(
@@ -15,11 +15,14 @@ function find(type) {
 		"(?:(?:git+)?https?|git|ssh)://(?:[^@\\s]+@)?github\\.com/|" +
 		"git@github\\.com:" +
 		")" +
-		`jloads/get\\.git \\(${type}\\)$`
+		`jloads/www \\(${type}\\)$`
 	)
 
-	const line = remoteInfo.find((line) => regexp.test(line))
 
+	// console.log(type);
+	const line = remoteInfo.find((line) => regexp.test(line))
+	// console.log(line);
+	// return 1;
 	return line == null ? undefined : {
 		remote: line.slice(0, line.indexOf("\t")),
 		repo: line.slice(line.lastIndexOf("\t") + 1, -(type.length + 3)),
@@ -28,6 +31,9 @@ function find(type) {
 
 exports.fetch = find("fetch")
 exports.push = find("push")
+
+console.log(exports.fetch);
+console.log(exports.push);
 
 if (exports.fetch == null) {
 	console.error("You must have an upstream to pull from!")

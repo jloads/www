@@ -41,8 +41,20 @@ async function generate() {
 	return (await makeGenerator()).generate()
 }
 
+
 async function makeGenerator() {
 	await rimraf(r("dist"))
+	console.log(r("dist"));
+
+
+	var  path = "archive";
+	// if (!fsa.existsSync(path)) {
+	// 	console.log('The path exists.');
+	// 	fsa.mkdir(r(path));
+	// }
+	fs.mkdir(path, { recursive: true }, (err) => {
+		if (err) throw err;
+	});
 
 	const [guides, methods, layout, pkg] = await Promise.all([
 		fs.readFile(r("docs/nav-guides.md"), "utf-8"),
@@ -53,22 +65,39 @@ async function makeGenerator() {
 	])
 
 	const version = JSON.parse(pkg).version
+	console.log(version);
+
+/*
 
 	// Make sure we have the latest archive.
 	execFileSync("git", [
 		"fetch", "--depth=1",
 		upstream.fetch.remote, "gh-pages",
+		// upstream.fetch.remote, "master",
 	])
 
+
+	console.log(upstream.fetch);
+
+*/
+/*
+
 	// Set up archive directories
-	execFileSync("git", [
+	var git_checkout = execFileSync("git", [
 		"checkout", `${upstream.fetch.remote}/gh-pages`,
+		// "checkout", `${upstream.fetch.remote}/master`,
 		"--", "archive",
 	])
+	console.log("git_checkout", git_checkout);
+*/
+
+
 	await fs.rename(r("archive"), r("dist/archive"))
 	await fs.mkdir(r(`dist/archive/v${version}`), {recursive: true})
+
 	// Tell Git to ignore our changes - it's no longer there.
-	execFileSync("git", ["add", "archive"])
+	// var git_checkout = execFileSync("git", ["add", "archive"])
+	// console.log("git_checkout", git_checkout);
 
 	return new Generator({version, guides, methods, layout})
 }
@@ -124,7 +153,7 @@ class Generator {
 		let result = this._layout
 
 		result = result.replace(
-			/<title>jloads\.js<\/title>/,
+			/<title>jloads<\/title>/,
 			`<title>${title[1]} - jloads.js</title>`
 		)
 
@@ -210,11 +239,13 @@ class Generator {
 
 	async generate() {
 		await this.generateRec(r("docs"))
+
 		// Just ensure it exists.
 		await (await fs.open(r("dist/.nojekyll"), "a")).close()
 	}
 }
 
+// --watch flag
 /* eslint-disable global-require */
 if (require.main === module) {
 	require("./_command")({

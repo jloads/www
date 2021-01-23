@@ -22,9 +22,12 @@ async function update() {
 		encoding: "utf-8",
 	})
 
+	// console.log(upstream.push.repo);
+	// console.log(upstream.push.remote);
+
 	await ghPages.publish(path.resolve(__dirname, "../dist"), {
 		// Note: once this is running on Travis again, run
-		// `git remote add upstream git@github.com:jloads/jloads.js.git` to
+		// `git remote add upstream git@github.com:jloads/jloads.git` to
 		// force it to go over SSH so the saved keys are used.
 		// https://github.com/tschaub/gh-pages/issues/160
 		repo: upstream.push.repo,
@@ -33,6 +36,7 @@ async function update() {
 		message: `Generated docs for commit ${commit} [skip ci]`,
 		// May want to enable this if an API token resolves the issue.
 		// silent: !!process.env.TRAVIS_CI,
+		// branch: 'master',
 	})
 
 	console.log("Published!")

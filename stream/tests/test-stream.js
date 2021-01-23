@@ -494,7 +494,7 @@ o.spec("stream", function() {
 			stream(2)
 			o(stream()).equals(2)
 		})
-		// https://github.com/MithrilJS/mithril.js/issues/2601
+
 		o("ended stream doesn't affect emit of subsequent streams", function() {
 			const refreshing = Stream()
 			const o1Received = []
