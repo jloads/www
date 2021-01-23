@@ -48,10 +48,6 @@ async function makeGenerator() {
 
 
 	var  path = "archive";
-	// if (!fsa.existsSync(path)) {
-	// 	console.log('The path exists.');
-	// 	fsa.mkdir(r(path));
-	// }
 	fs.mkdir(path, { recursive: true }, (err) => {
 		if (err) throw err;
 	});
@@ -68,7 +64,6 @@ async function makeGenerator() {
 	console.log(version);
 
 /*
-
 	// Make sure we have the latest archive.
 	execFileSync("git", [
 		"fetch", "--depth=1",
@@ -79,18 +74,15 @@ async function makeGenerator() {
 
 	console.log(upstream.fetch);
 
-*/
-/*
 
 	// Set up archive directories
 	var git_checkout = execFileSync("git", [
 		"checkout", `${upstream.fetch.remote}/gh-pages`,
 		// "checkout", `${upstream.fetch.remote}/master`,
-		"--", "archive",
+		// "--", "dist/archive",
 	])
 	console.log("git_checkout", git_checkout);
 */
-
 
 	await fs.rename(r("archive"), r("dist/archive"))
 	await fs.mkdir(r(`dist/archive/v${version}`), {recursive: true})
