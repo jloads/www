@@ -29,7 +29,7 @@ W późniejszym etapie, to będzie gotowa do pobrania aplikacja na systemy mobil
 ## Czym się wyróżnia?
 
 pozwala na definiowanie środowiska,
-jeśli domena dla danego adresu url nie jest zdefiniowana, 
+jeśli domena dla danego adresu url nie jest zdefiniowana,
 a jest zdefiniowana domena jednego ze środowisk:
 
 + lokalne
@@ -40,10 +40,12 @@ a jest zdefiniowana domena jednego ze środowisk:
 Wówczas domeną domyślną jest ta domena, która spełnia warunek.
 Warunek to funkcja zwrotna wykonywana jako Callback()
 
-    jloads.env("//localhost:8080/", "local", function () {
-        return window.location.hostname === 'localhost';
-    });
-        
+```javascript
+jloads.env("//localhost:8080/", "local", function () {
+	return window.location.hostname === 'localhost';
+});
+```
+
 ### Historia i powody powstania biblioteki jLoads
 
 ### Społeczność
@@ -65,7 +67,7 @@ Dla każdego, który widzi wartość w użyciu technologii natywnych jak czysxty
 oferujemy narzędzie pozwalająca na implementacje modularyzacji w sposób natywny, bez potrzeby tworzenia abstrakycjnej warstwy.
 
 ### Rozwiązanie
-To czego potrzebujemy to ładowania asynchronicznych mediów w przeglądarce, tak by były wolne od konfliktów wynikacjących 
+To czego potrzebujemy to ładowania asynchronicznych mediów w przeglądarce, tak by były wolne od konfliktów wynikacjących
 z zależności, błędów, itp.
 
 Tutaj z pomocą przychdzi jLoads, biblioteka, która ładuje wszystkie media jako pojedyncze moduły/pliki
@@ -80,94 +82,96 @@ Dzięki mozliwości ich kombinacji na stronie www u klienta powstaje wiele możl
 + Dodatkowe rozwiazania pozwalające na poszerzenie korzyści płynącej z JLoads to
     + jBodys jako obszerna biblioteka otwartych i darmowych modułów
     + jRuns jako runner po stronie serwera dla kodu po stronie backendu
-    
+
 To co jest istotne, to możliwość pracy z zastanym kodem "Legacy Code", bez potrzeby implementacji nowych frameworków,
 
 ## pozostańmy natywni, kolejną dekadę!
 
 ### Przykłady wykorzystania jloads:
 
-    // Configuration
-    var success = function (data) {
-        console.log('loaded', data);
-    };
-    var error = function (data) {
-        console.error('!loaded', data);
-    };
-    
-    // Declaration
-    var jloads = new Load(document.body, success, error);
+```javascript
+// Configuration
+var success = function (data) {
+	console.log('loaded', data);
+};
+var error = function (data) {
+	console.error('!loaded', data);
+};
 
-    // Environment
-    jloads.env("//localhost:8080/", "local", function () {
-        return window.location.hostname === 'localhost';
-    });
-    jloads.env("//load.jloads.com/", "production", function () {
-        return window.location.hostname !== 'localhost';
-    });
+// Declaration
+var jloads = new Load(document.body, success, error);
+
+// Environment
+jloads.env("//localhost:8080/", "local", function () {
+	return window.location.hostname === 'localhost';
+});
+jloads.env("//get.jloads.com/", "production", function () {
+	return window.location.hostname !== 'localhost';
+});
 
 
-    // Load NOW
-    jloads.js([
-        "//code.jquery.com/jquery-git.min.js",
-        "//stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js",
-    ]);
+// Load NOW
+jloads.js([
+	"//code.jquery.com/jquery-git.min.js",
+	"//stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js",
+]);
 
-    // Dynamic loading
-    document.addEventListener("DOMContentLoaded", function(event) {
-        loadDefaultCss();
-    });
+// Dynamic loading
+document.addEventListener("DOMContentLoaded", function(event) {
+	loadDefaultCss();
+});
 
-    function loadDefaultCss(){
-        jloads.cacheOff().css([
-            "//code.jquery.com/ui/1.12.1/jquery-ui.min.js",
-            "//stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css",
-            "css/default.css",
-        ]);
-    }
-    function loadPinkCss(){
-        jloads.cacheOff().css([
-            "css/pink.css",
-        ]);
-    }
-    function loadBlackCss(){
-        jloads.cacheOff().css([
-            "css/black.css",
-        ]);
-    }
-
+function loadDefaultCss(){
+	jloads.cacheOff().css([
+		"//code.jquery.com/ui/1.12.1/jquery-ui.min.js",
+		"//stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css",
+		"css/default.css",
+	]);
+}
+function loadPinkCss(){
+	jloads.cacheOff().css([
+		"css/pink.css",
+	]);
+}
+function loadBlackCss(){
+	jloads.cacheOff().css([
+		"css/black.css",
+	]);
+}
+```
 
 ## Przykład lokalnej implementacji edytora codemirror
 
-    jloadsUrl({
-                "head": [
-                    "jquery-3.2.1.min.js",
-                    "codemirror/lib/codemirror.js",
-                    "codemirror/addon/search/searchcursor.js",
-                    "codemirror/addon/search/search.js",
-                    "codemirror/addon/dialog/dialog.js",
-                    "codemirror/addon/edit/matchbrackets.js",
-                    "codemirror/addon/edit/closebrackets.js",
-                    "codemirror/addon/comment/comment.js",
-                    "codemirror/addon/wrap/hardwrap.js",
-                    "codemirror/addon/fold/foldcode.js",
-                    "codemirror/addon/fold/brace-fold.js",
-                    "codemirror/mode/javascript/javascript.js",
-                    "codemirror/keymap/sublime.js",
-                    "codemirror/lib/codemirror.css",
-                    "codemirror/addon/fold/foldgutter.css",
-                    "codemirror/addon/dialog/dialog.css",
-                    "codemirror/theme/monokai.css"
-                ],
-                "#forms": [
-                    "form/test.html",
-                    "css/codemirror.css",
-                    "form/inputs.css?6"
-                ]
-            });
+```javascript
+jloadsUrl({
+	"head": [
+		"jquery-3.2.1.min.js",
+		"codemirror/lib/codemirror.js",
+		"codemirror/addon/search/searchcursor.js",
+		"codemirror/addon/search/search.js",
+		"codemirror/addon/dialog/dialog.js",
+		"codemirror/addon/edit/matchbrackets.js",
+		"codemirror/addon/edit/closebrackets.js",
+		"codemirror/addon/comment/comment.js",
+		"codemirror/addon/wrap/hardwrap.js",
+		"codemirror/addon/fold/foldcode.js",
+		"codemirror/addon/fold/brace-fold.js",
+		"codemirror/mode/javascript/javascript.js",
+		"codemirror/keymap/sublime.js",
+		"codemirror/lib/codemirror.css",
+		"codemirror/addon/fold/foldgutter.css",
+		"codemirror/addon/dialog/dialog.css",
+		"codemirror/theme/monokai.css"
+	],
+	"#forms": [
+		"form/test.html",
+		"css/codemirror.css",
+		"form/inputs.css?6"
+	]
+});
+```
 
- 
-[https://load.jloads.com/](https://load.jloads.com/index.html)
+[https://get.jloads.com/](https://get.jloads.com/index.html)
 
 
 # [API Foundation](https://www.apifoundation.com)

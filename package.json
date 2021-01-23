@@ -1,0 +1,64 @@
+{
+  "name": "jLoads",
+  "version": "0.1.4",
+  "description": "A library for building brilliant applications",
+  "author": "Tom Sapletta",
+  "license": "MIT",
+  "unpkg": "jloads.min.js",
+  "repository": "github:jloads/jloads.js",
+  "scripts": {
+    "precommit": "lint-staged",
+    "watch": "run-p watch:**",
+    "watch:js": "node scripts/bundler browser.js -output jloads.js -watch",
+    "watch:docs": "node scripts/generate-docs --watch",
+    "watch:docs-lint": "node scripts/lint-docs --watch",
+    "build": "run-p build:browser build:min build:stream-min",
+    "build:browser": "node scripts/bundler browser.js -output jloads.js",
+    "build:docs": "node scripts/generate-docs",
+    "build:min": "node scripts/bundler browser.js -output jloads.min.js -minify -save",
+    "build:stream-min": "node scripts/minify-stream",
+    "cleanup:lint": "rimraf .eslintcache .lint-docs-cache",
+    "lint": "run-s -cn lint:**",
+    "lint:js": "eslint . --cache",
+    "lint:docs": "node scripts/lint-docs --cache",
+    "perf": "node performance/test-perf.js",
+    "pretest": "npm run lint",
+    "test": "run-s test:js",
+    "release": "npm version -m 'v%s'",
+    "version": "npm run build && git add jloads.js jloads.min.js stream.js stream.min.js README.md"
+  },
+  "devDependencies": {
+    "@alrra/travis-scripts": "^3.0.1",
+    "@babel/parser": "^7.7.5",
+    "benchmark": "^2.1.4",
+    "chokidar": "^3.2.1",
+    "escape-string-regexp": "^2.0.0",
+    "eslint": "^6.5.1",
+    "gh-pages": "^2.1.1",
+    "glob": "^7.1.4",
+    "html-minifier": "^4.0.0",
+    "lint-staged": "^9.4.1",
+    "locater": "^1.3.0",
+    "marked": "^0.7.0",
+    "minimist": "^1.2.0",
+    "npm-run-all": "^4.1.5",
+    "pinpoint": "^1.1.0",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7",
+    "rimraf": "^3.0.0",
+    "semver": "^6.3.0",
+    "terser": "^4.3.4"
+  },
+  "bin": {
+    "ospec": "./ospec/bin/ospec"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint . --fix",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "ospec": "4.0.0"
+  }
+}

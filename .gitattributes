@@ -1,0 +1,10 @@
+* text=auto
+/jloads.js binary
+/jloads.min.js binary
+/package-lock.json binary
+/yarn.lock binary
+
+# Assets
+*.png binary
+*.svg binary
+*.ico binary
