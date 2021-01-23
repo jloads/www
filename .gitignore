@@ -10,5 +10,5 @@ package-lock.json
 /.lint-docs-cache
 
 # These are artifacts from various scripts
-#/dist
+/dist/archive
 /archive
