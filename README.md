@@ -71,7 +71,7 @@ jloads has an active & welcoming community on [Gitter](https://gitter.im), or fe
 
 ## Contributing
 
-There's a [Contributing FAQ](https://get.jloads.com) on the jloads site that hopefully helps, but if not definitely hop into the [Gitter Room](https://gitter.im) and ask away!
+There's a [Contributing FAQ](https://contribution.jloads.com) on the jloads site that hopefully helps, but if not definitely hop into the [Gitter Room](https://gitter.im) and ask away!
 
 ---
 
